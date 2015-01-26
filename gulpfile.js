@@ -23,7 +23,7 @@ gulp.task('bower', function(){
 })
 gulp.task('lib', function(){
   return gulp.src('./src/lib/**/*.*', { vendor: './src/'})
-    .pipe(gulp.dest('./build'))
+    .pipe(gulp.dest('./build/lib'))
 })
 gulp.task('stylus',function(){
   gulp.src('./src/stylus/*.styl')
@@ -68,7 +68,13 @@ gulp.task('inject', function(){
 })
 
 gulp.task('firstInject',['bower', 'lib', 'stylus', 'js', 'inject'], function(){
-  console.log(bgVerde+vermelho+brilho+'Wellcome home, professor. Have a nice work.'+nocolor);
-  console.log(bgVerde+vermelho+brilho+'Seja bem vindo. Bom trabalho.'+nocolor);
+  console.log(bgVerde+vermelho+brilho+'---------------------------------------------------'+nocolor);
+  console.log(bgVerde+vermelho+brilho+'----Wellcome home, professor. Have a nice work.----'+nocolor);
+  console.log(bgVerde+vermelho+brilho+'If this is your first time, just re-save your HTML.'+nocolor);
+  console.log(bgVerde+vermelho+brilho+'---------------------------------------------------'+nocolor);
+  console.log(bgVerde+vermelho+brilho+'------------Seja bem vindo. Bom trabalho.----------'+nocolor);
+  console.log(bgVerde+vermelho+brilho+'--Se esta for sua primeira vez, re-salve seu HTML--'+nocolor);
+  console.log(bgVerde+vermelho+brilho+'---------------------------------------------------'+nocolor);
 })
+
 gulp.task('default', ['firstInject', 'serve', 'watch']);
