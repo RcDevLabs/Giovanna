@@ -1,9 +1,19 @@
-### Giovanna - Simples starter com auto-injeção e gulpjs
+# Giovanna - Simples starter com auto-injeção e gulpjs
 
-Comece seus projetos direto no html e nunca digite `<script src>` nem `<link href>`
+Rode a tarefa `gulp` e comece a trabalhar!
+
+Comece seus projetos direto no html e nunca digite `<script src>` nem `<link href>`!
+
+### Inclui:
+
+- Auto-injeção de dependências ao instalar um pacote pelo bower, ou manualmente na pasta `/assets`
+
+- Use Stylus ou css direto
+
+- LiveReload: uma vez executada `gulp` seu projeto atualiza automaticamente quando editado
 
 
-### Como Utilizar
+# Como Utilizar
 
 > Atenção: Você precisa ter [nodejs](http://nodejs.org/) e [gulpjs](http://gulpjs.com/) instalados.
 
@@ -22,7 +32,7 @@ Comece seus projetos direto no html e nunca digite `<script src>` nem `<link hre
 > Atenção 3: Não esqueça de editar as informações do seu projeto no `package.json` e `bower.json`
 
 
-## Estrutura de diretórios esperada
+# Estrutura de diretórios esperada
 
 A pasta `./src` é a única que será editada, contendo o código-fonte do projeto.
 
