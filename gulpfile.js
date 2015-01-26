@@ -22,8 +22,9 @@ gulp.task('bower', function(){
     .pipe(connect.reload());
 })
 gulp.task('lib', function(){
-  return gulp.src('./src/lib/**/*.*', { vendor: './src/'})
+  return gulp.src('./src/lib/**/*.*', { vendor: './src'})
     .pipe(gulp.dest('./build/lib'))
+    connect.reload();
 })
 gulp.task('stylus',function(){
   gulp.src('./src/stylus/*.styl')
@@ -48,14 +49,14 @@ gulp.task('serve', connect.server({
 gulp.task('watch', function () {
   gulp.watch(['./src/**.html'], ['inject']);
   gulp.watch(['./src/js/**.js'], ['js']);
-  gulp.watch(['./src/lib/**/*.*'], ['lib']);
+  gulp.watch(['./src/lib/**/**'], ['lib', 'inject']);
   gulp.watch([bowerFiles()], ['bower','js']);
   gulp.watch(['./src/stylus/**.styl'], ['stylus']);
 });
 
 gulp.task('inject', function(){
   var bowerz = gulp.src('./build/lib/vendor/**');
-  var lib = gulp.src('./build/lib/**/*.*');
+  var lib = gulp.src(['./build/lib/**/*.*', '!./build/lib/vendor/**']);
   var customCSS = gulp.src('./build/css/**.css');
   var customJs = gulp.src('./build/js/**.js');
   var sources = series(customCSS, customJs)
