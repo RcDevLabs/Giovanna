@@ -1,0 +1,19 @@
+{
+  "name": "Giovanna",
+  "version": "1.0.0",
+  "homepage": "https://github.com/romuloctba/rcLabs",
+  "authors": [
+    "RomuloCtba <romuloctba@gmail.com>"
+  ],
+  "description": "html gulp starter project by rcdev",
+  "main": "index.html",
+  "license": "private",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
