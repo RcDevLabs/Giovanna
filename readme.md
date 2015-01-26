@@ -25,9 +25,11 @@ Comece seus projetos direto no html e nunca digite `<script src>` nem `<link hre
 
 3. `bower install --save jquery` suas dependências ou jogue arquivos na `/lib`
 
-4. Faça algo legal no index.html
+4. No terminal, rode `gulp`
 
-5. No terminal, rode `gulp`
+5. Faça algo legal no index.html ***e salve***
+
+
 
 > Atenção 3: Não esqueça de editar as informações do seu projeto no `package.json` e `bower.json`
 
