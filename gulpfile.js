@@ -47,7 +47,8 @@ gulp.task('serve', connect.server({
 }));
 
 gulp.task('watch', function () {
-  gulp.watch(['src/**.html'], ['inject']);
+  gulp.watch(['src/**/**.html', '!src/partials/**'], ['inject']);
+  gulp.watch(['src/partials/**/**.html'], ['partials']);
   gulp.watch(['src/js/**.js'], ['js']);
   gulp.watch(['src/lib/**/**'], ['lib', 'inject']);
   gulp.watch([bowerFiles()], ['bower','js']);
@@ -60,15 +61,20 @@ gulp.task('inject', function(){
   var customCSS = gulp.src('./build/css/**.css');
   var customJs = gulp.src('./build/js/**.js');
   var sources = series(customCSS, customJs)
-  gulp.src('./src/**.html')
+  gulp.src(['./src/**.html', '!./src/partials'])
     .pipe(inject(bowerz, { relative: true, ignorePath: '../build', starttag: '<!-- bower:{{ext}} -->'  }))
     .pipe(inject(lib, { relative: true, ignorePath: '../build', starttag: '<!-- libs:{{ext}} -->'  }))
     .pipe(inject(sources, { relative: true, ignorePath: '../build/' }))
     .pipe(gulp.dest('./build'))
     .pipe(connect.reload());
 })
+gulp.task('partials', function(){
+  gulp.src(['./src/partials/**/**.html'])
+    .pipe(gulp.dest('./build'))
+    .pipe(connect.reload())
+});
 
-gulp.task('firstInject',['bower', 'lib', 'stylus', 'js', 'inject'], function(){
+gulp.task('firstInject',['bower', 'lib', 'stylus', 'js', 'inject', 'partials'], function(){
   console.log(bgVerde+vermelho+brilho+'---------------------------------------------------'+nocolor);
   console.log(bgVerde+vermelho+brilho+'----Wellcome home, professor. Have a nice work.----'+nocolor);
   console.log(bgVerde+vermelho+brilho+'If this is your first time, just re-save your HTML.'+nocolor);
