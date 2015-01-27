@@ -29,9 +29,9 @@ Comece seus projetos direto no html e nunca digite `<script src>` nem `<link hre
 
 5. Faça algo legal no index.html ***e salve***
 
-Vídeo:
+Vídeo (clique para abrir):
 
-[![ScreenShot](https://i.ytimg.com/vi_webp/TcfWZ9_5r7c/maxresdefault.webp)](https://www.youtube.com/watch?v=9RqMNC8enE8)
+[![ScreenShot](https://i.ytimg.com/vi_webp/9RqMNC8enE8/maxresdefault.webp)](https://www.youtube.com/watch?v=9RqMNC8enE8)
 
 
 > Atenção 3: Não esqueça de editar as informações do seu projeto no `package.json` e `bower.json`
