@@ -1,1 +1,0 @@
-Aqui vão imagens e outros assets, como fontes ou temas
