@@ -1,4 +1,4 @@
-# Giovanna - Simples starter com auto-injeção e gulpjs
+# Giovanna - Simples starter com auto-injeção, GulpJs e Stylus (opcional)
 
 Rode a tarefa `gulp` e comece a trabalhar!
 
@@ -29,6 +29,9 @@ Comece seus projetos direto no html e nunca digite `<script src>` nem `<link hre
 
 5. Faça algo legal no index.html ***e salve***
 
+Vídeo:
+
+[![ScreenShot](https://i.ytimg.com/vi_webp/TcfWZ9_5r7c/maxresdefault.webp)](https://www.youtube.com/watch?v=9RqMNC8enE8)
 
 
 > Atenção 3: Não esqueça de editar as informações do seu projeto no `package.json` e `bower.json`
