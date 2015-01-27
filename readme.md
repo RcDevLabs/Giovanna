@@ -29,7 +29,7 @@ Comece seus projetos direto no html e nunca digite `<script src>` nem `<link hre
 
 5. Faça algo legal no index.html ***e salve***
 
-Vídeo (clique para abrir):
+Vídeo Passo a Passo de como começar: (clique para abrir)
 
 [![ScreenShot](https://i.ytimg.com/vi_webp/9RqMNC8enE8/maxresdefault.webp)](https://www.youtube.com/watch?v=9RqMNC8enE8)
 
