@@ -29,9 +29,10 @@ Comece seus projetos direto no html e nunca digite `<script src>` nem `<link hre
 
 5. Faça algo legal no index.html ***e salve***
 
-Vídeo Passo a Passo de como começar: (clique para abrir)
-
-[![ScreenShot](https://i.ytimg.com/vi_webp/9RqMNC8enE8/maxresdefault.webp)](https://www.youtube.com/watch?v=9RqMNC8enE8)
+Vídeos Passo a Passo de como começar: (clique para abrir)
+[Usando Giovanna com Bootstrap](https://www.youtube.com/watch?v=HuFE9GzRMGs)
+[Usando Giovanna com Semantic-Ui](https://www.youtube.com/watch?v=9RqMNC8enE8)
+![ScreenShot](https://i.ytimg.com/vi_webp/9RqMNC8enE8/maxresdefault.webp)
 
 
 > Atenção 3: Não esqueça de editar as informações do seu projeto no `package.json` e `bower.json`
