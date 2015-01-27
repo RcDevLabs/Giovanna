@@ -6,9 +6,9 @@ Comece seus projetos direto no html e nunca digite `<script src>` nem `<link hre
 
 ### Inclui:
 
-- Auto-injeção de dependências ao instalar um pacote pelo bower, ou manualmente na pasta `/assets`
+- Auto-injeção de dependências ao instalar um pacote pelo bower, ou manualmente na pasta `/lib`
 
-- Use Stylus ou css direto
+- Use Stylus ou apenas CSS
 
 - LiveReload: uma vez executada `gulp` seu projeto atualiza automaticamente quando editado
 
