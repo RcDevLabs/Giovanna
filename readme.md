@@ -29,7 +29,9 @@ Comece seus projetos direto no html e nunca digite `<script src>` nem `<link hre
 
 5. Faça algo legal no index.html ***e salve***
 
-Vídeos Passo a Passo de como começar: (clique para abrir)
+Vídeos Passo a Passo de como começar:
+
+
 [Usando Giovanna com Bootstrap](https://www.youtube.com/watch?v=HuFE9GzRMGs)
 
 
