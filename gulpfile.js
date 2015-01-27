@@ -47,11 +47,11 @@ gulp.task('serve', connect.server({
 }));
 
 gulp.task('watch', function () {
-  gulp.watch(['./src/**.html'], ['inject']);
-  gulp.watch(['./src/js/**.js'], ['js']);
-  gulp.watch(['./src/lib/**/**'], ['lib', 'inject']);
+  gulp.watch(['src/**.html'], ['inject']);
+  gulp.watch(['src/js/**.js'], ['js']);
+  gulp.watch(['src/lib/**/**'], ['lib', 'inject']);
   gulp.watch([bowerFiles()], ['bower','js']);
-  gulp.watch(['./src/stylus/**.styl'], ['stylus']);
+  gulp.watch(['src/stylus/**.styl'], ['stylus']);
 });
 
 gulp.task('inject', function(){

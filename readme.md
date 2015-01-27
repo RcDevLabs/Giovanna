@@ -19,7 +19,7 @@ Comece seus projetos direto no html e nunca digite `<script src>` nem `<link hre
 
 > Atenção 2: É necessário ter alguma dependencia do bower para funcionar. (devido ao [main-bower-files](https://github.com/ck86/main-bower-files) Sugiro jquery `bower install --save jquery` )
 
-1. Git clone https://github.com/RcDevLabs/Giovanna.git
+1. `Git clone https://github.com/RcDevLabs/Giovanna.git ***nomeDaPastaDoSeuProjeto***`
 
 2. `npm install `
 
