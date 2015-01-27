@@ -47,7 +47,7 @@ gulp.task('serve', connect.server({
 }));
 
 gulp.task('watch', function () {
-  gulp.watch(['src/**/**.html', '!src/partials/**'], ['inject']);
+  gulp.watch(['src/**/*.html', '!src/partials/**'], ['inject']);
   gulp.watch(['src/partials/**/**.html'], ['partials']);
   gulp.watch(['src/js/**.js'], ['js']);
   gulp.watch(['src/lib/**/**'], ['lib', 'inject']);
@@ -70,7 +70,7 @@ gulp.task('inject', function(){
 })
 gulp.task('partials', function(){
   gulp.src(['./src/partials/**/**.html'])
-    .pipe(gulp.dest('./build'))
+    .pipe(gulp.dest('./build/partials'))
     .pipe(connect.reload())
 });
 
