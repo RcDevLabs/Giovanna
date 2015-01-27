@@ -41,7 +41,7 @@ Vídeo Passo a Passo de como começar: (clique para abrir)
 
 A pasta `./src` é a única que será editada, contendo o código-fonte do projeto.
 
-Na `./src/libs/` inclua os js, css, imagens e etc que não podem ser inseridos pelo bower. ``` ***Exemplo:*** o semantic-ui , se instalado pelo bower carrega apenas o semantic.min.js e semantic.min.css, deixando de lado importantes arquivos de fontes/icons e tema. Neste caso, insira os arquivos (que faltam, ou todos mesmo) na `/assets` ``´
+Na `./src/libs/` inclua os js, css, imagens e etc que não podem ser inseridos pelo bower. ``` ***Exemplo:*** o semantic-ui , se instalado pelo bower carrega apenas o semantic.min.js e semantic.min.css, deixando de lado importantes arquivos de fontes/icons e tema. Neste caso, insira os arquivos (que faltam, ou todos mesmo) na `/lib` ``´
 
 A pasta `./build` é gerada pelas Gulp Tasks com código crú, porém compilado. É a pasta servida pela task `serve`
 

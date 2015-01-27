@@ -3,8 +3,8 @@ var bowerFiles = require('main-bower-files'),
     stylus = require('gulp-stylus'),
     gulp = require('gulp'),
     series = require('stream-series'),
-    connect = require('gulp-connect-multi')();
-
+    connect = require('gulp-connect-multi')(),
+    angularFilesort = require('gulp-angular-filesort');
 //cores
 var azul = '\x1b[1m\x1b[36m'
   , verde = '\x1b[32m'
@@ -55,7 +55,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('inject', function(){
-  var bowerz = gulp.src('./build/lib/vendor/**');
+  var bowerz = gulp.src('./build/lib/vendor/**').pipe(angularFilesort());
   var lib = gulp.src(['./build/lib/**/*.*', '!./build/lib/vendor/**']);
   var customCSS = gulp.src('./build/css/**.css');
   var customJs = gulp.src('./build/js/**.js');
