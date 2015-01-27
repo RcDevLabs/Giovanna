@@ -31,7 +31,10 @@ Comece seus projetos direto no html e nunca digite `<script src>` nem `<link hre
 
 Vídeos Passo a Passo de como começar: (clique para abrir)
 [Usando Giovanna com Bootstrap](https://www.youtube.com/watch?v=HuFE9GzRMGs)
+
+
 [Usando Giovanna com Semantic-Ui](https://www.youtube.com/watch?v=9RqMNC8enE8)
+
 ![ScreenShot](https://i.ytimg.com/vi_webp/9RqMNC8enE8/maxresdefault.webp)
 
 
