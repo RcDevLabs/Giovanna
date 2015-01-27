@@ -1,3 +1,3 @@
 A pasta /lib deve incluir libraries externas ou js e css necessários para execução da sua aplicação.
 
-A pasta /lib/assets por sua vez, visa armazenar imagens, audio, e assets em geral.
+Crie aqui uma /assets (nome sugerido) para armazenar imagens, audio, e assets em geral.
