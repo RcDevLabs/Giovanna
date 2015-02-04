@@ -4,7 +4,8 @@ var bowerFiles = require('main-bower-files'),
     gulp = require('gulp'),
     series = require('stream-series'),
     connect = require('gulp-connect-multi')(),
-    angularFilesort = require('gulp-angular-filesort');
+    angularFilesort = require('gulp-angular-filesort'),
+    wiredep = require('wiredep');
 //cores
 var azul = '\x1b[1m\x1b[36m'
   , verde = '\x1b[32m'
@@ -16,11 +17,63 @@ var azul = '\x1b[1m\x1b[36m'
   , nocolor = "\x1b[0m";
 
 
-gulp.task('bower', function(){
-  return gulp.src(bowerFiles())
-    .pipe(gulp.dest('./build/lib/vendor'))
-    .pipe(connect.reload());
-})
+// gulp.task('bower', function(){
+//   return gulp.src(bowerFiles())
+//     .pipe(gulp.dest('./build/lib/vendor'))
+//     .pipe(connect.reload());
+// })
+
+gulp.task('bowerjs', function () {
+ return gulp.src(wiredep().js)
+    .pipe(gulp.dest('build/vendor'));
+});
+
+gulp.task('bowercss', function () {
+ return gulp.src(wiredep().css)
+    .pipe(gulp.dest('build/vendor'));
+});
+
+gulp.task('index', ['bowerjs', 'bowercss', 'lib', 'stylus', 'js'], function() {
+  return gulp.src(['src/**/*.html', '!src/partials/**'])
+    .pipe(wiredep.stream({
+      fileTypes: {
+        html: {
+          replace: {
+            js: function(filePath) {
+              return '<script src="' + 'vendor/' + filePath.split('/').pop() + '"></script>';
+            },
+            css: function(filePath) {
+              return '<link rel="stylesheet" href="' + 'vendor/' + filePath.split('/').pop() + '"/>';
+            }
+          }
+        }
+      }
+    }))
+    .pipe(inject(
+      gulp.src(['build/src/**/**.js'], { read: false }), {
+        addRootSlash: false,
+        transform: function(filePath, file, i, length) {
+          return '<script src="' + filePath.replace('build/', '') + '"></script>';
+        }
+      }))
+
+    .pipe(inject(
+      gulp.src(['build/**/**/**.css'], { read: false }), {
+        addRootSlash: false,
+        transform: function(filePath, file, i, length) {
+          return '<link rel="stylesheet" href="' + filePath.replace('build/', '') + '"/>';
+        }
+      }))
+    .pipe(gulp.dest('build'))
+    .pipe(connect.reload())
+});
+
+gulp.task('partials', function(){
+  gulp.src(['./src/partials/**/**.html'])
+    .pipe(gulp.dest('./build/partials'))
+    .pipe(connect.reload())
+});
+
 gulp.task('lib', function(){
   return gulp.src('./src/lib/**/*.*', { vendor: './src'})
     .pipe(gulp.dest('./build/lib'))
@@ -47,34 +100,16 @@ gulp.task('serve', connect.server({
 }));
 
 gulp.task('watch', function () {
-  gulp.watch(['src/**/*.html', '!src/partials/**'], ['inject']);
+  gulp.watch(['src/**/*.html', '!src/partials/**'], ['index']);
   gulp.watch(['src/partials/**/**.html'], ['partials']);
-  gulp.watch(['src/js/**.js'], ['js']);
-  gulp.watch(['src/lib/**/**'], ['lib', 'inject']);
-  gulp.watch([bowerFiles()], ['bower','js']);
-  gulp.watch(['src/stylus/**.styl'], ['stylus']);
+  gulp.watch(['src/js/**/**.js'], ['js']);
+  gulp.watch(['src/lib/**/**'], ['lib']);
+  gulp.watch(['bower_components/**/**'], ['bowerjs', 'bowercss']);
+  gulp.watch(['build/**/**/**'], ['index'])
+  gulp.watch(['src/stylus/**.styl'], ['stylus', 'index']);
 });
 
-gulp.task('inject', function(){
-  var bowerz = gulp.src('./build/lib/vendor/**').pipe(angularFilesort());
-  var lib = gulp.src(['./build/lib/**/*.*', '!./build/lib/vendor/**']);
-  var customCSS = gulp.src('./build/css/**.css');
-  var customJs = gulp.src('./build/js/**.js');
-  var sources = series(customCSS, customJs)
-  gulp.src(['./src/**.html', '!./src/partials'])
-    .pipe(inject(bowerz, { relative: true, ignorePath: '../build', starttag: '<!-- bower:{{ext}} -->'  }))
-    .pipe(inject(lib, { relative: true, ignorePath: '../build', starttag: '<!-- libs:{{ext}} -->'  }))
-    .pipe(inject(sources, { relative: true, ignorePath: '../build/' }))
-    .pipe(gulp.dest('./build'))
-    .pipe(connect.reload());
-})
-gulp.task('partials', function(){
-  gulp.src(['./src/partials/**/**.html'])
-    .pipe(gulp.dest('./build/partials'))
-    .pipe(connect.reload())
-});
-
-gulp.task('firstInject',['bower', 'lib', 'stylus', 'js', 'inject', 'partials'], function(){
+gulp.task('firstInject',['bower', 'lib', 'stylus', 'js', 'index', 'partials'], function(){
   console.log(bgVerde+vermelho+brilho+'---------------------------------------------------'+nocolor);
   console.log(bgVerde+vermelho+brilho+'----Wellcome home, professor. Have a nice work.----'+nocolor);
   console.log(bgVerde+vermelho+brilho+'If this is your first time, just re-save your HTML.'+nocolor);
