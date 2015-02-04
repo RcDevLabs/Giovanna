@@ -47,7 +47,7 @@ gulp.task('index', ['bowerjs', 'lib', 'stylus', 'js'], function() {
       }
     }))
     .pipe(inject(
-      gulp.src(['build/src/**/**.js'], { read: false }), {
+      gulp.src(['build/**/**.js'], { read: false }), {
         addRootSlash: false,
         transform: function(filePath, file, i, length) {
           return '<script src="' + filePath.replace('build/', '') + '"></script>';
@@ -99,11 +99,11 @@ gulp.task('serve', connect.server({
 gulp.task('watch', function () {
   gulp.watch(['src/**/*.html', '!src/partials/**'], ['index']);
   gulp.watch(['src/partials/**/**.html'], ['partials']);
-  gulp.watch(['src/js/**/**.js'], ['js']);
-  gulp.watch(['src/lib/**/**'], ['lib']);
-  gulp.watch(['bower_components/**/**'], ['bowerjs']);
-  gulp.watch(['build/**/**/**'], ['index'])
-  gulp.watch(['src/stylus/**.styl'], ['stylus']);
+  gulp.watch(['src/js/**/**.js'], ['js', 'index']);
+  gulp.watch(['src/lib/**/**'], ['lib', 'index']);
+  gulp.watch(['bower_components/**/**'], ['index']);
+  //gulp.watch(['build/**/**/**'], ['index'])
+  gulp.watch(['src/stylus/**.styl'], ['stylus', 'index']);
 });
 
 gulp.task('firstInject',['lib', 'stylus', 'js', 'index', 'partials'], function(){
