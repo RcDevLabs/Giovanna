@@ -33,7 +33,7 @@ gulp.task('bowercss', function () {
     .pipe(gulp.dest('build/vendor'));
 });
 
-gulp.task('index', ['bowerjs', 'bowercss', 'lib', 'stylus', 'js'], function() {
+gulp.task('index', ['bowerjs', 'lib', 'stylus', 'js'], function() {
   return gulp.src(['src/**/*.html', '!src/partials/**'])
     .pipe(wiredep.stream({
       fileTypes: {
@@ -41,9 +41,6 @@ gulp.task('index', ['bowerjs', 'bowercss', 'lib', 'stylus', 'js'], function() {
           replace: {
             js: function(filePath) {
               return '<script src="' + 'vendor/' + filePath.split('/').pop() + '"></script>';
-            },
-            css: function(filePath) {
-              return '<link rel="stylesheet" href="' + 'vendor/' + filePath.split('/').pop() + '"/>';
             }
           }
         }
@@ -104,7 +101,7 @@ gulp.task('watch', function () {
   gulp.watch(['src/partials/**/**.html'], ['partials']);
   gulp.watch(['src/js/**/**.js'], ['js']);
   gulp.watch(['src/lib/**/**'], ['lib']);
-  gulp.watch(['bower_components/**/**'], ['bowerjs', 'bowercss']);
+  gulp.watch(['bower_components/**/**'], ['bowerjs']);
   gulp.watch(['build/**/**/**'], ['index'])
   gulp.watch(['src/stylus/**.styl'], ['stylus', 'index']);
 });
