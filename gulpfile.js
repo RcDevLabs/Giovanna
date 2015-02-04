@@ -103,10 +103,10 @@ gulp.task('watch', function () {
   gulp.watch(['src/lib/**/**'], ['lib']);
   gulp.watch(['bower_components/**/**'], ['bowerjs']);
   gulp.watch(['build/**/**/**'], ['index'])
-  gulp.watch(['src/stylus/**.styl'], ['stylus', 'index']);
+  gulp.watch(['src/stylus/**.styl'], ['stylus']);
 });
 
-gulp.task('firstInject',['bower', 'lib', 'stylus', 'js', 'index', 'partials'], function(){
+gulp.task('firstInject',['lib', 'stylus', 'js', 'index', 'partials'], function(){
   console.log(bgVerde+vermelho+brilho+'---------------------------------------------------'+nocolor);
   console.log(bgVerde+vermelho+brilho+'----Wellcome home, professor. Have a nice work.----'+nocolor);
   console.log(bgVerde+vermelho+brilho+'If this is your first time, just re-save your HTML.'+nocolor);
