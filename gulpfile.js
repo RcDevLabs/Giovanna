@@ -1,6 +1,7 @@
 var bowerFiles = require('main-bower-files'),
     inject = require('gulp-inject'),
     stylus = require('gulp-stylus'),
+    nib = require('nib'),
     gulp = require('gulp'),
     series = require('stream-series'),
     connect = require('gulp-connect-multi')(),
@@ -24,13 +25,23 @@ var azul = '\x1b[1m\x1b[36m'
 // })
 
 gulp.task('bowerjs', function () {
- return gulp.src(wiredep().js)
-    .pipe(gulp.dest('build/vendor'));
+  if(wiredep().js){
+  gulp.src(wiredep().js)
+    .pipe(gulp.dest('build/vendor'));  
+    } else {
+      return
+    }
+  
 });
 
 gulp.task('bowercss', function () {
- return gulp.src(wiredep().css)
-    .pipe(gulp.dest('build/vendor'));
+  if(wiredep().css){
+  gulp.src(wiredep().css)
+    .pipe(gulp.dest('build/vendor'));  
+    } else {
+      return
+    }
+  
 });
 
 gulp.task('inject', function() {
@@ -78,7 +89,7 @@ gulp.task('lib', function(){
 })
 gulp.task('stylus',function(){
   gulp.src('./src/stylus/*.styl')
-    .pipe(stylus())
+    .pipe(stylus({use: nib()}))
     .pipe(gulp.dest('./build/css'))
     .pipe(connect.reload());
 });
@@ -106,7 +117,7 @@ gulp.task('watch', function () {
   gulp.watch(['src/stylus/**.styl'], ['stylus', 'inject']);
 });
 
-gulp.task('firstInject',['lib', 'stylus', 'js', 'inject', 'partials'], function(){
+gulp.task('firstInject',['lib', 'bowerjs', 'bowercss', 'stylus', 'js', 'inject', 'partials'], function(){
   console.log(bgVerde+vermelho+brilho+'---------------------------------------------------'+nocolor);
   console.log(bgVerde+vermelho+brilho+'----Wellcome home, professor. Have a nice work.----'+nocolor);
   console.log(bgVerde+vermelho+brilho+'If this is your first time, just re-save your HTML.'+nocolor);
