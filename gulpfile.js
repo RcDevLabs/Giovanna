@@ -63,7 +63,7 @@ gulp.task('inject', function() {
       }
     }))
     .pipe(inject(
-      gulp.src(['build/**/**.js'], { read: false }), {
+      gulp.src(['build/js/**.js'], { read: false }), {
         addRootSlash: false,
         transform: function(filePath, file, i, length) {
           return '<script src="' + filePath.replace('build/', '') + '"></script>';
