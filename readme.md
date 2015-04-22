@@ -10,6 +10,8 @@ Comece seus projetos direto no html e nunca digite `<script src>` nem `<link hre
 
 - Use Stylus ou apenas CSS
 
+- Include de Partials e mini-template engine com gulp-file-includes `@@include('partials/arquivo.html')`
+
 - LiveReload: uma vez executada `gulp` seu projeto atualiza automaticamente quando editado
 
 
