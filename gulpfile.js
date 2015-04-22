@@ -118,7 +118,7 @@ gulp.task('serve', connect.server({
 
 gulp.task('watch', function () {
   gulp.watch(['src/**/*.html', '!src/partials/**'], ['inject']);
-  gulp.watch(['src/partials/**.html'], ['copyPartials', 'inject']);
+  gulp.watch(['src/partials/**/**.html'], ['copyPartials', 'inject']);
   gulp.watch(['src/js/**/**.js'], ['js', 'inject']);
   gulp.watch(['src/lib/**/**'], ['lib', 'inject']);
   gulp.watch(['bower_components/**/**'], ['inject']);
