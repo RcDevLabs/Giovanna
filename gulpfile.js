@@ -97,7 +97,7 @@ gulp.task('lib', function(){
     connect.reload();
 })
 gulp.task('stylus',function(){
-  gulp.src('./src/stylus/*.styl')
+  gulp.src('./src/stylus/main.styl')
     .pipe(stylus({use: nib()}))
     .pipe(gulp.dest('./build/css'))
     .pipe(connect.reload());
