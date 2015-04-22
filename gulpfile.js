@@ -44,7 +44,11 @@ gulp.task('bowercss', function () {
     }
   
 });
-
+gulp.task('copyPartials', function(){
+  gulp.src('./src/partials/**.html')
+    .pipe(gulp.dest('./build/partials'))
+    .pipe(connect.reload())
+  })
 gulp.task('inject', function() {
   return gulp.src(['src/**/*.html', '!src/partials/**'])
     .pipe(wiredep.stream({
@@ -114,7 +118,7 @@ gulp.task('serve', connect.server({
 
 gulp.task('watch', function () {
   gulp.watch(['src/**/*.html', '!src/partials/**'], ['inject']);
-  gulp.watch(['src/partials/**/**.html'], ['partials']);
+  gulp.watch(['src/partials/**.html'], ['copyPartials', 'inject']);
   gulp.watch(['src/js/**/**.js'], ['js', 'inject']);
   gulp.watch(['src/lib/**/**'], ['lib', 'inject']);
   gulp.watch(['bower_components/**/**'], ['inject']);
@@ -122,7 +126,7 @@ gulp.task('watch', function () {
   gulp.watch(['src/stylus/**.styl'], ['stylus', 'inject']);
 });
 
-gulp.task('firstInject',['lib', 'bowerjs', 'bowercss', 'stylus', 'js', 'inject', 'partials'], function(){
+gulp.task('firstInject',['lib', 'bowerjs', 'bowercss', 'stylus', 'js','copyPartials', 'inject'], function(){
   console.log(bgVerde+vermelho+brilho+'---------------------------------------------------'+nocolor);
   console.log(bgVerde+vermelho+brilho+'----Wellcome home, professor. Have a nice work.----'+nocolor);
   console.log(bgVerde+vermelho+brilho+'If this is your first time, just re-save your HTML.'+nocolor);
