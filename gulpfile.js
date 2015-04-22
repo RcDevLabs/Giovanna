@@ -6,6 +6,7 @@ var bowerFiles = require('main-bower-files'),
     series = require('stream-series'),
     connect = require('gulp-connect-multi')(),
     angularFilesort = require('gulp-angular-filesort'),
+    fileinclude = require('gulp-file-include'),
     wiredep = require('wiredep');
 //cores
 var azul = '\x1b[1m\x1b[36m'
@@ -71,6 +72,10 @@ gulp.task('inject', function() {
         transform: function(filePath, file, i, length) {
           return '<link rel="stylesheet" href="' + filePath.replace('build/', '') + '"/>';
         }
+      }))
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: './src/'
       }))
     .pipe(gulp.dest('build'))
     .pipe(connect.reload())
