@@ -18,13 +18,6 @@ var azul = '\x1b[1m\x1b[36m'
   , bgVerde="\x1b[42m"
   , nocolor = "\x1b[0m";
 
-
-// gulp.task('bower', function(){
-//   return gulp.src(bowerFiles())
-//     .pipe(gulp.dest('./build/lib/vendor'))
-//     .pipe(connect.reload());
-// })
-
 gulp.task('bowerjs', function () {
   if(wiredep().js){
   gulp.src(wiredep().js)
@@ -32,7 +25,6 @@ gulp.task('bowerjs', function () {
     } else {
       return
     }
-  
 });
 
 gulp.task('bowercss', function () {
@@ -42,7 +34,6 @@ gulp.task('bowercss', function () {
     } else {
       return
     }
-  
 });
 gulp.task('copyPartials', function(){
   gulp.src('./src/partials/**.html')
