@@ -1,13 +1,14 @@
-var bowerFiles = require('main-bower-files'),
-    inject = require('gulp-inject'),
-    stylus = require('gulp-stylus'),
-    nib = require('nib'),
-    gulp = require('gulp'),
-    series = require('stream-series'),
-    connect = require('gulp-connect-multi')(),
-    angularFilesort = require('gulp-angular-filesort'),
-    fileinclude = require('gulp-file-include'),
-    wiredep = require('wiredep');
+var bowerFiles = require('main-bower-files')
+    , inject = require('gulp-inject')
+    , stylus = require('gulp-stylus')
+    , nib = require('nib')
+    , gulp = require('gulp')
+    , series = require('stream-series')
+    , connect = require('gulp-connect-multi')()
+    , angularFilesort = require('gulp-angular-filesort')
+    , fileinclude = require('gulp-file-include')
+    , wiredep = require('wiredep')
+    , plumber = require('plumber');
 //cores
 var azul = '\x1b[1m\x1b[36m'
   , verde = '\x1b[32m'
@@ -42,6 +43,7 @@ gulp.task('copyPartials', function(){
   })
 gulp.task('inject', function() {
   return gulp.src(['src/**/*.html', '!src/partials/**'])
+    .pipe(plumber())
     .pipe(wiredep.stream({
       fileTypes: {
         html: {
