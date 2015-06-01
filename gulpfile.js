@@ -8,7 +8,7 @@ var bowerFiles = require('main-bower-files')
     , angularFilesort = require('gulp-angular-filesort')
     , fileinclude = require('gulp-file-include')
     , wiredep = require('wiredep')
-    , plumber = require('plumber');
+    , plumber = require('gulp-plumber');
 //cores
 var azul = '\x1b[1m\x1b[36m'
   , verde = '\x1b[32m'
