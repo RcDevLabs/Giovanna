@@ -116,7 +116,7 @@ gulp.task('watch', function () {
   gulp.watch(['src/lib/**/**'], ['lib', 'inject']);
   gulp.watch(['bower_components/**/**'], ['inject']);
   //gulp.watch(['build/**/**/**'], ['index'])
-  gulp.watch(['src/stylus/**.styl'], ['stylus', 'inject']);
+  gulp.watch(['src/stylus/**/**/**.styl'], ['stylus', 'inject']);
 });
 
 gulp.task('firstInject',['lib', 'bowerjs', 'bowercss', 'stylus', 'js','copyPartials', 'inject'], function(){
